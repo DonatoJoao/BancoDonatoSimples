@@ -17,11 +17,6 @@ public abstract class Conta {
         this.numero = numero;
         this.titular = new Cliente(nome,cpf,senha);
     }
-//    public boolean autorizaSaque(int senha){
-//        int senhaSaque = Integer.parseInt(JOptionPane.showInputDialog("Digite sua senha"));
-//        if (this.getTitular().getSenha() == senhaSaque);
-//        return true;
-//    }
 
 
     //sacar
