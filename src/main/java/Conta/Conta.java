@@ -2,27 +2,47 @@ package Conta;
 
 import Cliente.Cliente;
 
-public abstract class Conta {
+import java.util.Scanner;
 
+public abstract class Conta {
+    Scanner scanner = new Scanner(System.in);
     private int agencia;
     private int numero;
     public double saldo;
     private Cliente titular;
+
 
     public Conta(int agencia, int numero, String nome, String cpf,int senha) {
         this.agencia = agencia;
         this.numero = numero;
         this.titular = new Cliente(nome,cpf,senha);
     }
+//    public boolean autorizaSaque(int senha){
+//        int senhaSaque = Integer.parseInt(JOptionPane.showInputDialog("Digite sua senha"));
+//        if (this.getTitular().getSenha() == senhaSaque);
+//        return true;
+//    }
+
 
     //sacar
-    public void saca(double valor){
-        if (this.saldo>= valor){
-            this.saldo-=valor;
-        } else {
-            System.out.println("Saldo insuficiente");
-        }
+    public void saca(double valor ) {
+        System.out.println("Digite sua senha");
+        int senhaParaSacar = scanner.nextInt();
+            if (senhaParaSacar==this.getTitular().getSenha()) {
+                if (this.saldo >= valor){
+                    this.saldo -= valor;
+                    System.out.println("Saque autorizado");
+                } else {
+                    System.out.println("Saldo insuficiente");
+                }
+            }else {
+                System.out.println("Saldo insuficiente");
+            }
     }
+
+
+
+
 
     //depositar
     public void deposita(double valor){

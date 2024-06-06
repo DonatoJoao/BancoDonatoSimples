@@ -10,18 +10,36 @@ public class ContaCorrente extends Conta {
 
     @Override
     public void saca(double valor) {
-        if(valor>=limiteEspecial){
-            this.saldo-=valor;
+        System.out.println("Digite sua senha para Sacar");
+        int senhaParaSacar = scanner.nextInt();
+
+        if(senhaParaSacar == super.getTitular().getSenha()){
+            if ((valor-saldo) <= limiteEspecial){
+                super.saldo-=valor;
+                System.out.println("Operação Realizada - Conta Corrente");
         } else {
-            System.out.println("Limite indisponível");
+                System.out.println("Saldo insuficiente");
+            }
+        } else {
+            System.out.println("Senha incorreta");
         }
     }
 
     @Override
     public void transfere(double valor, Conta contaDestino) {
-        if (valor>limiteEspecial){
-            this.saca(valor);
-            contaDestino.deposita(valor);
+        System.out.println("Digite sua senha para transferir");
+        int senhaParaSacar = scanner.nextInt();
+        if (senhaParaSacar==this.getTitular().getSenha()) {
+            if ((valor-saldo) <= limiteEspecial){
+                super.saldo-=valor;
+                contaDestino.deposita(valor);
+                System.out.println("Transferência realizada com sucesso");
+            } else {
+                System.out.println("O saldo para transferir é insuficiente");
+            }
+        } else {
+            System.out.println("Senha incorreta");
+        }
         }
     }
-}
+

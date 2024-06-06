@@ -10,12 +10,12 @@ public class TesteConta {
                 System.out.println(contaJoao.getTitular().getNome());
                 contaJoao.deposita(5000);
                 System.out.println(contaJoao.getSaldo());
-                contaJoao.transfere(4000,contaPri);
+                //contaJoao.transfere(4000,contaPri);
                 System.out.println(contaPri.getSaldo());
                 System.out.println("saldo " + contaJoao.getTitular().getNome()+ " " + contaJoao.getSaldo());
                 System.out.println(contaJoao.getTitular().getClass());
                 System.out.println(contaJoao.getClass());
-                contaJoao.saca(1900);
+                //contaJoao.saca(1900);
                 System.out.println("saldo " + contaJoao.getTitular().getNome()+ " " + contaJoao.getSaldo());
         }
 }
