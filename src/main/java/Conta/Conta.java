@@ -10,13 +10,18 @@ public abstract class Conta {
     private int numero;
     public double saldo;
     private Cliente titular;
+    private TarifaBancaria tarifa;
 
 
     public Conta(int agencia, int numero, String nome, String cpf,int senha) {
         this.agencia = agencia;
         this.numero = numero;
         this.titular = new Cliente(nome,cpf,senha);
+        this.tarifa = new TarifaBancaria();
     }
+    //tarifa
+
+
 
 
     //sacar
@@ -36,9 +41,6 @@ public abstract class Conta {
     }
 
 
-
-
-
     //depositar
     public void deposita(double valor){
         this.saldo+=valor;
@@ -50,12 +52,14 @@ public abstract class Conta {
         contaDestino.deposita(valor);
     }
 
-
     //saldo
     public void exibeSaldo(){
         System.out.println(this.getTitular().getNome() + ", seu saldo é de: " + this.saldo);
     }
 
+
+
+    //Getters and Setters*********************
     public int getAgencia() {
         return agencia;
     }
@@ -72,4 +76,7 @@ public abstract class Conta {
         return titular;
     }
 
+    public TarifaBancaria getTarifa() {
+        return tarifa;
+    }
 }
