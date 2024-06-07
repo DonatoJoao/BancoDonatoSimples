@@ -19,7 +19,8 @@ public class ContaCorrente extends Conta {
 
         if(senhaParaSacar == super.getTitular().getSenha()){
             if ((this.saldo-valor+tarifaSaque) >= limiteEspecial){
-                super.saldo-=valor+tarifaSaque;
+                super.saldo-=valor+tarifaSaque; //preciso passar esse valor da tarifa para a conta do Banco
+
                 System.out.println("Operação Realizada - Saque da Conta Corrente");
         } else {
                 System.out.println("Saldo insuficiente");
@@ -36,7 +37,7 @@ public class ContaCorrente extends Conta {
         int senhaParaSacar = scanner.nextInt();
         if (senhaParaSacar==this.getTitular().getSenha()) {
             if ((this.saldo-valor+tarifaTransferencia) >= limiteEspecial){
-                saldo-=valor+tarifaTransferencia;
+                saldo-=valor+tarifaTransferencia; //preciso passar esse valor da tarifa para a conta do Banco
                 contaDestino.deposita(valor);
 
                 System.out.println("Transferência realizada com sucesso");

@@ -7,6 +7,19 @@ public abstract class Funcionario {
     private String cargo; //fazer um Enum?
     private double salario;
 
+
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", cargo='" + cargo + '\'' +
+                ", salario=" + salario +
+                '}';
+    }
+
+    public abstract double getBonificacao();
     public String getNome() {
         return nome;
     }
